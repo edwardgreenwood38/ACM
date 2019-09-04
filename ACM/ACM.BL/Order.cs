@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ACM.BL
 {
-    class Order
+    public class Order
     {
         public Order()
         {
@@ -35,38 +35,6 @@ namespace ACM.BL
             return isValid;
         }
 
-        /// <summary>
-        /// Retrieve one order.
-        /// </summary>
-        /// <returns></returns>
-        public Customer Retrieve(int orderId)
-        {
-            // code that retrieves the defined customer
-
-            return new Customer();
-        }
-
-
-        /// <summary>
-        /// Retieve all orders.
-        /// </summary>
-        public List<Customer> Retrieve()
-        {
-            // code that retrieves all of the customers
-
-            return new List<Customer>();
-        }
-
-
-        /// <summary>
-        /// Saves the current order.
-        /// </summary>
-        /// <returns></returns>
-        public bool Save()
-        {
-            // code that saves the difined customer
-
-            return true;
-        }
+        
     }
 }
