@@ -8,7 +8,7 @@ namespace ACM.BL
 {
     public class Customer
     {
-        public Customer()
+        public Customer() : this(0)
         {
 
         }
@@ -16,11 +16,14 @@ namespace ACM.BL
         public Customer(int customerId)
         {
             CustomerId = customerId;
+            AddressList = new List<Address>();
         }
 
 
         public int CustomerId { get; private set; }
+        public int CustomerType { get; set; }
         public string EmailAddress { get; set; }
+        public List<Address> AddressList { get; set; }
 
         // quick method - used when no need to perform any actions on property
         public string FirstName { get; set; }
