@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ACM.BL
 {
-    public class Customer
+    public class Customer : EntityBase
     {
         public Customer() : this(0)
         {
@@ -46,8 +46,6 @@ namespace ACM.BL
             }
         }
 
-        public static int InstanceCount { get; set; }  // 'static' belongs to class and not a property
-
         // full - use when you need to modify property before
         private string _lastName;
         public string LastName
@@ -62,12 +60,17 @@ namespace ACM.BL
             }
         }
 
+        public override string ToString() => FullName;
+
+        public static int InstanceCount { get; set; }  // 'static' belongs to class and not a property
+
+
 
         /// <summary>
         /// Validates the customer data.
         /// </summary>
         /// <return></return>
-        public bool Validate()
+        public override bool Validate()
         {
             var isValid = true;
 
