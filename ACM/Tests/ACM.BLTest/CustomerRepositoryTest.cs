@@ -107,5 +107,48 @@ namespace ACM.BLTest
                 Assert.AreEqual(expected.AddressList[i].PostalCode, actual.AddressList[i].PostalCode);
             }
         }
+
+        [TestMethod]
+        public void SaveTestValid()
+        {
+            // Arrange
+            var customerRepository = new CustomerRepository();
+            var updateCustomer = new Customer(1)
+            {
+                LastName = "Baggins",
+                FirstName = "Frodo",
+                EmailAddress = "fbaggins@hobbiton.me",
+                CustomerType = 1,
+                HasChanges = true
+            };
+
+            // Act
+            var actual = customerRepository.Save(updateCustomer);
+
+            // Assert
+            Assert.AreEqual(true, actual);
+        }
+
+
+        [TestMethod]
+        public void SaveTestMissingLastName()
+        {
+            // Arrange
+            var customerRepository = new CustomerRepository();
+            var updateCustomer = new Customer(1)
+            {
+                LastName = null,
+                FirstName = "Frodo",
+                EmailAddress = "fbaggins@hobbiton.me",
+                CustomerType = 1,
+                HasChanges = true
+            };
+
+            // Act
+            var actual = customerRepository.Save(updateCustomer);
+
+            // Assert
+            Assert.AreEqual(false, actual);
+        }
     }
 }
